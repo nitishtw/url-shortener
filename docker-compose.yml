@@ -1,0 +1,56 @@
+version: "3"
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./web/nginx.conf:/etc/nginx/nginx.conf
+    links:
+      - shortening
+      - redirection
+  
+  shortening: 
+    build: 
+      context: ./shortening
+      dockerfile: Dockerfile-shortening
+    links:
+      - db
+    ports: 
+      - "5000:5000"
+    
+    environment:
+      MYSQL_USER: nitish
+      MYSQL_PASSWORD: Kokil1996
+      MYSQL_DB: url
+      MYSQL_HOST: db
+
+
+  redirection: 
+    build: 
+      context: ./redirection
+      dockerfile: Dockerfile-redirection
+    links:
+      - db
+    ports:
+      - "50001:5000"
+    environment:
+      MYSQL_USER: nitish
+      MYSQL_PASSWORD: Kokil1996
+      MYSQL_DB: url
+      MYSQL_HOST: db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: random
+      MYSQL_ROOT_USER: root
+      MYSQL_USER: nitish
+      MYSQL_PASSWORD: Kokil1996
+      MYSQL_DATABASE: url
+    
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
