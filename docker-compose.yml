@@ -16,14 +16,11 @@ services:
       dockerfile: Dockerfile-shortening
     links:
       - db
-    ports: 
-      - "5000:5000"
+    # ports: 
+    #   - "5000:5000"
     
-    environment:
-      MYSQL_USER: nitish
-      MYSQL_PASSWORD: Kokil1996
-      MYSQL_DB: url
-      MYSQL_HOST: db
+    env_file:
+     - ./config.env
 
 
   redirection: 
@@ -32,25 +29,18 @@ services:
       dockerfile: Dockerfile-redirection
     links:
       - db
-    ports:
-      - "50001:5000"
-    environment:
-      MYSQL_USER: nitish
-      MYSQL_PASSWORD: Kokil1996
-      MYSQL_DB: url
-      MYSQL_HOST: db
+    # ports:
+    #   - "50001:5000"
+    env_file:
+     - ./config.env
 
   db:
     image: mysql:5.7
-    ports:
-      - "3306:3306"
+    # ports:
+    #   - "3306:3306"
     
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: random
-      MYSQL_ROOT_USER: root
-      MYSQL_USER: nitish
-      MYSQL_PASSWORD: Kokil1996
-      MYSQL_DATABASE: url
+    env_file:
+     - ./config.env
     
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
