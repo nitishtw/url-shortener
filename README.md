@@ -1,5 +1,6 @@
 ## URL Shortener by Nitish Tiwari
 * URL Shortener consiste of two sevices:
+
 #### Shortening Service
 - Takes a long URL as input and generates a random short URL for it
 - Store the mapping between shortened URL and long URL in the datastore.
@@ -12,7 +13,6 @@
 
 ![alt text](https://github.com/AdvikEshan/url-shortener/blob/main/redirection-service.png?raw=true)
 ----
-## Setup
 ### Directory Structure
 1. **db**:  This directory contains init script to create table inside database.
 2. **shortening**: This directory contains the Dockerfile, requirements.txta and script to run the shortening app.
@@ -21,8 +21,10 @@
 5. ***config.env***: This is the env file for docker-compose to pass the environment variables.
 6. ***docker-compose.yml***: The compose file to automate the local deployemnt using containers.
  
+## Setup :anchor:
 ### Requirements
 * Docker Compose
+
 ### local setup
 **Command**: ``` docker-compose up -d```
 
@@ -33,7 +35,6 @@ Once the compose is up, URL Shortening service can be accessed at ```http://loca
 ### Pending :heavy_exclamation_mark:
 * Automate the deployment on cloud through Terraform/Ansible.
 
-### Improvements :raised_hands:
 * Use minimal docker base images such as Alpine to reduce the setup time.
 * Regex expression for URL validitaion.
 * MySQL Data dir to persist the data.
