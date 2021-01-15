@@ -1,5 +1,5 @@
 ## URL Shortener by Nitish Tiwari
-* URL Shortener consiste of two sevices:
+* This is a very basic URL Shortener (like bit.ly / tinyURL) which consists of following components:
 
 #### Shortening Service
 - Takes a long URL as input and generates a random short URL for it
