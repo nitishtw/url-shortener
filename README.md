@@ -25,7 +25,7 @@
 ### Requirements :heavy_check_mark:
 * Docker Compose
 
-***Command***: ``` docker-compose up -d```
+**Setup Command**: ``` docker-compose up -d```
 
 Once the compose is up, URL Shortening service can be accessed at ```http://localhost``` :smile:
 
