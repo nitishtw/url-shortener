@@ -22,19 +22,19 @@
 6. ***docker-compose.yml***: The compose file to automate the local deployemnt using containers.
  
 ## Setup :anchor:
-### Requirements
+### Requirements :heavy_check_mark:
 * Docker Compose
 
-### local setup
-**Command**: ``` docker-compose up -d```
+***Command***: ``` docker-compose up -d```
 
-Once the compose is up, URL Shortening service can be accessed at ```http://localhost```
+Once the compose is up, URL Shortening service can be accessed at ```http://localhost``` :smile:
 
 ***Note***: _This compose file uses port 80 for web server. Make sure it's not bind to any other service._
 
 ### Pending :heavy_exclamation_mark:
 * Automate the deployment on cloud through Terraform/Ansible.
 
+### Improvements :raised_hands:
 * Use minimal docker base images such as Alpine to reduce the setup time.
 * Regex expression for URL validitaion.
 * MySQL Data dir to persist the data.
