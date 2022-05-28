@@ -38,5 +38,3 @@ Once the compose is up, URL Shortening service can be accessed at ```http://loca
 * Use minimal docker base images such as Alpine to reduce the setup time.
 * Regex expression for URL validitaion.
 * MySQL Data dir to persist the data.
-
-### Dummy commit
